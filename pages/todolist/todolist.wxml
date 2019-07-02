@@ -1,0 +1,18 @@
+<view>
+  <view class='ipt-box'>
+    <input value='{{val}}' bindinput="changeFn" />
+    <button bindtap="getValFn">OK</button>
+  </view>
+
+  <view>
+    <view class='head'>{{num}}个待办</view>
+    <view class='nav'>
+      <text wx:for="{{navData}}" wx:key="{{index}}" data-ind='{{index}}' bindtap="activeBtn" class="{{index==currentIndex?'active':''}}">{{item.title}}</text>
+    </view>
+    <checkbox-group bindchange="getId">
+        <view class='item' wx:for="{{showData}}" wx:key="{{index}}">
+            <checkbox checked='{{item.check}}' value='{{item.id}}' />{{item.val}}
+        </view>
+    </checkbox-group>
+  </view>
+</view>
